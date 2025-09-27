@@ -6,7 +6,7 @@
     {{#context}}
     post = ef.post.First(post.Slug.ToLower() == Slug.ToLower())
     {{!-- post = news.First(post.Id == Guid.Parse(id)) --}}
-
+    {{!-- html = RenderPostContent(post.Id) --}}
     {{/context}}
 
     <title>{{{post.Title}}} - {{{SysOptions.SiteName}}}</title>
@@ -20,7 +20,9 @@
         <img src="/img/image_placeholder.svg" alt="" style="max-height: 300px;">
 
         <div class="mt-4 content">
-            {{{Content}}}
+            {{!-- {{{Content}}} --}}
+            {{!-- {{{@root.html}}} --}}
+            {{{#RenderPostContent id}}}
         </div>
 
     </article>
